@@ -1,14 +1,33 @@
-import { getInitialData } from '../utils/_DATA'
-import { receiveUsers } from './users'
-import { receiveQuestions } from './questions'
+import { getInitialData, saveQuestionAnswerApi } from '../utils/api'
+import { receiveUsers, adduserAnswer } from './users'
+import { receiveQuestions, addQuestionsAnswer } from './questions'
+import { setAuthedUser } from './authedUser'
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 
 
-export function handleInitialData() {
+export function handleInitialData(userID) {
     return (dispatch) => {
-        return getInitialData().then(({users , questions}) => {
+        dispatch(showLoading())
+        return getInitialData().then(({ users, questions }) => {
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
+            dispatch(setAuthedUser(userID ? userID : null))
+            dispatch(hideLoading())
         })
+    }
+}
+
+
+export function handleAddQuestionAnswer(info) {
+    return (dispatch) => {
+        dispatch(showLoading())
+        return saveQuestionAnswerApi(info)
+            .then(() => {
+                dispatch(adduserAnswer(info))
+                dispatch(addQuestionsAnswer(info))
+                dispatch(hideLoading())
+            })
+
     }
 }
