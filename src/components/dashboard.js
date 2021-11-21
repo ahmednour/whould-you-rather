@@ -54,7 +54,7 @@ handleswitchQuestion = e => {
                         }
                         {switchQuestion === 'Answered' &&
                             <div className="CardList">
-                                { unanswered.sort((a,b) => b.timestamp - a.timestamp).map((q) =>
+                                { answered.sort((a,b) => b.timestamp - a.timestamp).map((q) =>
                                     <PollCard id={q.id} key={q.id} />
                                 )}     
                             </div>

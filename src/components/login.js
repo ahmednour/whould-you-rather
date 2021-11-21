@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import {  Redirect , withRouter } from 'react-router-dom'
+import { BrowserRouter as Redirect, withRouter }  from 'react-router-dom'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { Card , FloatingLabel } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'

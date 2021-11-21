@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-export class PollCard extends Component {
+ class PollCard extends Component {
     render() {
         const {question , user , questionId} = this.props
         return (
