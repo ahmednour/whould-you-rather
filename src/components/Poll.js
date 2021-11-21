@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { handleAddQuestionAnswer } from '../actions/shared'
 
-export class Poll extends Component {
+ class Poll extends Component {
     state = {
         answer: ''
     }

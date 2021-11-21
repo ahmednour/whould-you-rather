@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { handleAddQuestion } from '../actions/questions'
 
-export class AddQuestion extends Component {
+ class AddQuestion extends Component {
     state = {
         Option1 : '',
         Option2 :'', 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { Navbar, Button, Nav, Image } from 'react-bootstrap'
+import { Navbar, Button } from 'react-bootstrap'
 import { setAuthedUser } from '../actions/authedUser'
 import { Redirect } from 'react-router-dom'
-export class NavBar extends Component {
+ class NavBar extends Component {
     state = {
         tologin: false
     }

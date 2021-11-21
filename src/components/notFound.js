@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class notFound extends Component {
+ class notFound extends Component {
     render() {
         return (
             <div className="Error">
