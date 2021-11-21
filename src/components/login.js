@@ -53,7 +53,7 @@ class Login extends Component {
                                                 <option vlaue={''}>-- Select User --</option>
                                                {Object.keys(users).map((uid) =>(
                                                    <option key={uid} value={uid}>
-                                                       {uid}
+                                                       {uid.name}
                                                    </option>
                                                ))}
                                             </Form.Select>
@@ -77,4 +77,4 @@ function mapStateToProps (users)  {
 }
 
 
-export default withRouter( connect(mapStateToProps)(Login))
+export default  connect(mapStateToProps)(withRouter(Login))

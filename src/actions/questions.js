@@ -1,5 +1,4 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
-import authedUser from "../reducers/authedUser";
 import { saveQuestionApi } from "../utils/api";
 import { adduserQuestion } from './users'
 
