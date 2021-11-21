@@ -28,12 +28,12 @@ class App extends Component {
           {this.props.loading === true
             ? null
             : <>
-              <Route path="/" exact element={Login}/>
-              <PrivatRoute path='/home' exact Component={dashboard} />
-              <PrivatRoute path='/add' exact Component={AddQuestion} />
-              <PrivatRoute path='/leaderBoard' exact Component={leaderBoard} />
-              <PrivatRoute path='/questions/:id' exact Component={Poll} />
-              <Route path='/notfound' exact Component={notFound} />
+              <Route path="/" exact component={Login}/>
+              <PrivatRoute path='/home' exact component={dashboard} />
+              <PrivatRoute path='/add' exact component={AddQuestion} />
+              <PrivatRoute path='/leaderBoard' exact component={leaderBoard} />
+              <PrivatRoute path='/questions/:id' exact component={Poll} />
+              <Route path='/notfound' exact component={notFound} />
             </>
           }
          </Fragment>

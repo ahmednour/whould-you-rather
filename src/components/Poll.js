@@ -29,7 +29,7 @@ import { handleAddQuestionAnswer } from '../actions/shared'
         const { question, users, id, authedUser } = this.props
 
         if (!question) {
-            return <Redirect to='/Eroro' />
+            return <Redirect to='/notFound' />
         }
 
         const author = question ? users[question.author] : null

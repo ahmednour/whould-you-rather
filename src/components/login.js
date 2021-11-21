@@ -23,7 +23,8 @@ class Login extends Component {
             this.props.dispatch(setAuthedUser(this.state.id))
             this.setState({
                 redirectToReferrer:true,
-            })
+            });
+            this.props.history.push("/home");
         }else{
             alert("Pleas , Select User")
         }
@@ -40,20 +41,19 @@ class Login extends Component {
          }
          return (
             <Container>
-                <Row>
+                <Row className="justify-content-md-center mt-5">
                     <Col xs={6}>
-                        <Card className="text-center">
+                        <Card className="text-center card-custom">
                             <Card.Header>Wlecome to Whould You Rather App </Card.Header>
                             <Card.Body>
-                                <Card.Title>Special title treatment</Card.Title>
                                 <Form>
                                     <Form.Group className="mb-3" controlId="users">
                                         <FloatingLabel controlId="floatingSelectGrid" label="Select User To Sign in">
                                             <Form.Select   onChange={this.setUser }>
                                                 <option vlaue={''}>-- Select User --</option>
-                                               {Object.keys(users).map((uid) =>(
-                                                   <option key={uid} value={uid}>
-                                                       {uid.name}
+                                               {users.map((name) =>(
+                                                   <option key={name} value={name}>
+                                                       {name}
                                                    </option>
                                                ))}
                                             </Form.Select>
@@ -70,9 +70,9 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps (users)  {
+function mapStateToProps (state)  {
     return{
-        users,
+        users : Object.keys(state.users)
     }
 }
 
