@@ -9,15 +9,15 @@ class PollCard extends Component {
         return (
             <Container>
                 <Row className="justify-content-md-center mt-5"> 
-                    <Col xs={6}>
+                    <Col xs={12}>
                         <Card className="text-center card-custom">
                             <Card.Img variant="top" src={user.avatarURL} />
                             <Card.Body>
                                 <Card.Title> {user.name} asks </Card.Title>
                                 <Card.Text>
-                                    <h5> Whould You Rather : </h5>
-                                    <p> A: {question.optionOne.text} </p>
-                                    <p> A: {question.optionTwo.text} </p>
+                                    <div> Whould You Rather : </div>
+                                    <div> A: {question.optionOne.text} </div>
+                                    <div> B: {question.optionTwo.text} </div>
                                 </Card.Text>
                                 <Link to={`/questions/${questionId}`}>
                                     <Button variant="primary">View POll Vote</Button></Link>

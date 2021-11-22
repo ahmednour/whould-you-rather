@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { Navbar, Button, Container, Nav } from 'react-bootstrap'
+import { Navbar, Button, Container, Nav ,Image } from 'react-bootstrap'
 import { setAuthedUser } from '../actions/authedUser'
 import { Redirect } from 'react-router-dom'
 class NavBar extends Component {
@@ -32,9 +32,9 @@ class NavBar extends Component {
                             </Nav>
                             <Nav>
                                 <NavLink to='/' exact className="nav-link">
-                                    Hello , {this.props.user ? this.props.user.name : null}
-                                    {/* <image src={this.props.user.avatarURL} rounded /> */}
-                                    <Button variant="outline-primary" onClick={this.Logout}>Log out</Button>
+                                   <Image src={this.props.user.avatarURL} rounded className="avatar" /> 
+                                    Hello , {this.props.user ? this.props.user.name : null}                                    
+                                    <Button variant="primary" onClick={this.Logout} className="logout">Log out</Button>
                                 </NavLink>
 
                             </Nav>
@@ -49,7 +49,7 @@ class NavBar extends Component {
                             <Nav>
                                 <NavLink to='/' exact className="nav-link">
                                     {/* <Image src={this.props.user.avatarURL} rounded /> */}
-                                    <Button variant="outline-primary" >Log in</Button>
+                                    <Button variant="primary" >Log in</Button>
                                 </NavLink>
                             </Nav>
                         </>

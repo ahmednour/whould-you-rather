@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Col, Nav, Row } from 'react-bootstrap'
+import { Container, Col, Nav, Row, Card } from 'react-bootstrap'
 import PollCard from './question'
 
 // un answered question function
@@ -36,29 +36,35 @@ class dashboard extends Component {
             <div>
                 <Container>
                     <Row className="justify-content-md-center mt-5">
-                        <Col xs={4} md={4}>
-                            <Nav className="justify-content-center" activeKey="link-1">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="link-1" value={'Unanswered'} onClick={() => this.handleswitchQuestion("Unanswered")}>Unanswered </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="link-2" value={'Answered'} onClick={() => this.handleswitchQuestion("Answered")}>Answered</Nav.Link>
-                                </Nav.Item>
-                            </Nav>
-                            {switchQuestion === 'Unanswered' &&
-                                <div className="CardList">
-                                    {unanswered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
-                                        <PollCard id={q.id} key={q.id} />
-                                    )}
-                                </div>
-                            }
-                            {switchQuestion === 'Answered' &&
-                                <div className="CardList">
-                                    {answered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
-                                        <PollCard id={q.id} key={q.id} />
-                                    )}
-                                </div>
-                            }
+                        <Col xs={12} md={6}>
+                            <Card>
+                                <Card.Header>
+                                    <Nav className="justify-content-center" variant="tabs" defaultActiveKey="link-1">
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="link-1" value={'Unanswered'} onClick={() => this.handleswitchQuestion("Unanswered")}>Unanswered </Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="link-2" value={'Answered'} onClick={() => this.handleswitchQuestion("Answered")}>Answered</Nav.Link>
+                                        </Nav.Item>
+                                    </Nav>
+                                </Card.Header>
+                                <Card.Body>
+                                    {switchQuestion === 'Unanswered' &&
+                                        <div className="CardList">
+                                            {unanswered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
+                                                <PollCard id={q.id} key={q.id} />
+                                            )}
+                                        </div>
+                                    }
+                                    {switchQuestion === 'Answered' &&
+                                        <div className="CardList">
+                                            {answered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
+                                                <PollCard id={q.id} key={q.id} />
+                                            )}
+                                        </div>
+                                    }
+                                </Card.Body>
+                            </Card>
                         </Col>
                     </Row>
                 </Container>

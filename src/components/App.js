@@ -27,14 +27,14 @@ class App extends Component {
           <NavBar/>
           {this.props.loading === true
             ? null
-            : <>
+            : <div>
               <Route path="/" exact component={Login}/>
               <PrivatRoute path='/home' exact component={dashboard} />
               <PrivatRoute path='/add' exact component={AddQuestion} />
               <PrivatRoute path='/leaderBoard' exact component={leaderBoard} />
               <PrivatRoute path='/questions/:id' exact component={Poll} />
               <Route path='/notfound' exact component={notFound} />
-            </>
+            </div>
           }
          </Fragment>
       </Router>

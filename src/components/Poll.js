@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Container, Image, Col } from 'react-bootstrap'
+import { Container, Col, Card , Row } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { handleAddQuestionAnswer } from '../actions/shared'
 
- class Poll extends Component {
+class Poll extends Component {
     state = {
         answer: ''
     }
@@ -44,56 +44,61 @@ import { handleAddQuestionAnswer } from '../actions/shared'
         return (
             <div className="boxConatiner">
                 <Container>
-                    <Col xs={12}>
-                        <h2> {author.name} asks </h2>
-                        <div className="autherinfo">
-                            <Image alt={author.avatarURL} src={author.avatarURL} ></Image>
-                        </div>
-
-                        {questionAnswered ? (
-                            <div className="pollResalut">
-                                <h3>Poll Results:</h3>
-                                <div className="polldiv">
-                                    <h4>A: {question.optionOne.text}</h4>
-                                    <p>
-                                        {questionOneVotes} out of {questionTotalVotes} votes ({questionOnePercent}% ) {usersAnswer === 'optionOne' ? '-- Your answer' : ''}
-                                    </p>
-                                </div>
-                                <div className="polldiv">
-                                    <h4>A: {question.optionTwo.text}</h4>
-                                    <p>
-                                        {questionTwoVotes} out of {questionTotalVotes} votes ({questionTwoPercent}% ) {usersAnswer === 'optionTwo' ? '-- Your answer' : ''}
-                                    </p>
-                                </div>
-                            </div>
-                        ) : (
-                           
-                                <div className="boxvotes">
-                                    <h2> Whould You Rather </h2>
-                                    <div className="votes">
-                                        <input type="radio" onClick={(e) => this.handleSu(e, "optionOne")} />
+                   <Row className="justify-content-md-center mt-5">
+                   <Col xs={4}>
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>{author.name} asks </Card.Title>
+                                <Card.Text>
+                                    <div className="autherinfo">
+                                        <Card.Img alt={author.avatarURL} src={author.avatarURL} ></Card.Img>
                                     </div>
-                                    <label>A: {question.optionOne.text} </label>                               
-                                    
-                                    <div className="votes">
-                                        <input type="radio" onClick={(e) => this.handleSu(e, "optionTwo")} />
-                                    </div>
-                                    <label>B: {question.optionTwo.text} </label>
-                                </div>                           
-                        )
-                        }
+                                    {questionAnswered ? (
+                                        <div className="pollResalut">
+                                            <h3>Poll Results:</h3>
+                                            <div className="polldiv">
+                                                <h4>A: {question.optionOne.text}</h4>
+                                                <p>
+                                                    {questionOneVotes} out of {questionTotalVotes} votes ({questionOnePercent}% ) {usersAnswer === 'optionOne' ? <span>Your Vote</span> : ''}
+                                                </p>
+                                            </div>
+                                            <div className="polldiv">
+                                                <h4>B: {question.optionTwo.text}</h4>
+                                                <p>
+                                                    {questionTwoVotes} out of {questionTotalVotes} votes ({questionTwoPercent}% ) {usersAnswer === 'optionTwo' ? <span>Your Vote</span>  : ''}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="boxvotes">
+                                            <h2> Whould You Rather </h2>
+                                            <div className="votes">
+                                                <input type="radio" onClick={(e) => this.handleSu(e, "optionOne")} />
+                                                <label>A: {question.optionOne.text} </label>
+                                            </div>                                          
+                                            <div className="votes">
+                                                <input type="radio" onClick={(e) => this.handleSu(e, "optionTwo")} />
+                                                <label>B: {question.optionTwo.text} </label>
+                                            </div>
+                                        </div>
+                                    )
+                                    }
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
                     </Col>
+                   </Row>
                 </Container>
             </div>
         )
     }
 }
 
-function mapStateToProps ({ authedUser , users , questions} , {match}) {
-    const {id} =match.params
+function mapStateToProps({ authedUser, users, questions }, { match }) {
+    const { id } = match.params
     const question = questions[id]
 
-    return{
+    return {
         question,
         users,
         id,
