@@ -19,13 +19,17 @@ export function handleInitialData(userID) {
 }
 
 
-export function handleAddQuestionAnswer(info) {
+export function handleAddQuestionAnswer(authedUser, qid, answer) {
     return (dispatch) => {
         dispatch(showLoading())
-        return saveQuestionAnswerApi(info)
+        return saveQuestionAnswerApi({
+                authedUser: authedUser,
+                qid: qid,
+                answer: answer
+            })
             .then(() => {
-                dispatch(adduserAnswer(info))
-                dispatch(addQuestionsAnswer(info))
+                dispatch(adduserAnswer(authedUser, qid, answer))
+                dispatch(addQuestionsAnswer(authedUser, qid, answer))
                 dispatch(hideLoading())
             })
 

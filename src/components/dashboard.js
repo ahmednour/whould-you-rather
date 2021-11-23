@@ -36,7 +36,7 @@ class dashboard extends Component {
             <div>
                 <Container>
                     <Row className="justify-content-md-center mt-5">
-                        <Col xs={12} md={6}>
+                        <Col xs={12} md={4}>
                             <Card>
                                 <Card.Header>
                                     <Nav className="justify-content-center" variant="tabs" defaultActiveKey="link-1">

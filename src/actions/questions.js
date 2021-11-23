@@ -19,10 +19,12 @@ export function addQuestions(question) {
         question,
     }
 }
-export function addQuestionsAnswer(info) {
+export function addQuestionsAnswer(authedUser, qid, answer) {
     return {
         type: "ADD_QUESTIONS_ANSWER",
-        info,
+        authedUser,
+        qid,
+        answer,
     }
 }
 
@@ -37,7 +39,7 @@ export function handleAddQuestion(option1, option2) {
             author: authedUser,
         }).then((q) => {
             dispatch(addQuestions(q))
-            dispatch(adduserQuestion(q.author, q.id))
+            dispatch(adduserQuestion(q))
             dispatch(hideLoading())
         })
     }

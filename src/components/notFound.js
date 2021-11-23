@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-
- class notFound extends Component {
+import { Container, Row, Col } from 'react-bootstrap'
+class notFound extends Component {
     render() {
         return (
-            <div className="Error">
-                <h2> 404 Not Found </h2>
-            </div>
+            <Container>
+                <Row >
+                    <Col xs={12}>
+                        <div className="Error text-center d-flex justify-content-center align-items-center">
+                            <h2> 404 Not Found </h2>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }

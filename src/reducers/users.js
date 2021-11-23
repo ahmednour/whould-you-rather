@@ -8,8 +8,9 @@ export default function users(state = {}, action) {
                 ...action.users
             }
         case ADD_USER_QUESTION:
-            const user = action.question.author
-            const questionId = action.question.id
+            // const user = action.question.author
+            // const questionId = action.question.id
+            const { user, questionId } = action
             return {
                 ...state,
                 [user]: {
@@ -18,7 +19,7 @@ export default function users(state = {}, action) {
                 }
             }
         case ADD_USER_ANSWER:
-            const {authedUser , qid , answer} = action
+            const { qid, authedUser, answer } = action
             return {
                 ...state,
                 [authedUser]: {

@@ -22,18 +22,21 @@ code {
     font-weight: bold;
     color: #4d535b;
 }
-.avatar{
+
+.avatar {
     width: 40px;
     margin-right: 10px;
 }
-.logout{
+
+.logout {
     margin-left: 10px;
 }
-.pollResalut , .boxvotes {
+
+.pollResalut,
+.boxvotes {
     padding-top: 10px;
-    border-top: 1px solid  #eee;
+    border-top: 1px solid #eee;
     margin-top: 10px;
-    
 }
 
 .polldiv {
@@ -44,8 +47,9 @@ code {
     background-color: #eee;
     box-shadow: 0px 1px 1px #e1e1e1;
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
 }
+
 .polldiv span {
     position: absolute;
     top: 17px;
@@ -60,6 +64,7 @@ code {
     box-shadow: 0px 3px 6px #9b9b9b;
     border: 1px solid #fff;
 }
+
 h2.leaderHeader {
     text-align: center;
     margin-top: 3%;
@@ -79,10 +84,12 @@ h2.leaderHeader {
     float: right;
     background-color: #f9f9f9;
 }
+
 img.card-img-top.logoQ {
     width: 20%;
     margin: 20px auto;
 }
+
 button.Subutton {
     background: #e9e3d5;
     border: 1px solid #b6b0a2;
@@ -90,4 +97,8 @@ button.Subutton {
     border-radius: 5px;
     font-weight: bold;
     color: #3e4954;
+}
+
+.Error {
+    height: calc(100vh - 100px);
 }
