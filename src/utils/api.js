@@ -15,8 +15,8 @@ import {
     }))
   }
   
-  export function saveQuestionAnswerApi (info) {
-    return _saveQuestionAnswer(info)
+  export function saveQuestionAnswerApi ({authedUser, qid, answer}) {
+    return _saveQuestionAnswer({authedUser, qid, answer})
   }
   
   export function saveQuestionApi (question) {

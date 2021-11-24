@@ -23,9 +23,7 @@ class dashboard extends Component {
         this.setState(() => ({
             switchQuestion: type
         }))
-
     }
-
     render() {
         const { switchQuestion } = this.state
         const { authedUser, questions } = this.props
@@ -49,20 +47,22 @@ class dashboard extends Component {
                                     </Nav>
                                 </Card.Header>
                                 <Card.Body>
-                                    {switchQuestion === 'Unanswered' &&
-                                        <div className="CardList">
-                                            {unanswered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
-                                                <PollCard id={q.id} key={q.id} />
-                                            )}
-                                        </div>
-                                    }
-                                    {switchQuestion === 'Answered' &&
-                                        <div className="CardList">
-                                            {answered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
-                                                <PollCard id={q.id} key={q.id} />
-                                            )}
-                                        </div>
-                                    }
+                                    <Row className="justify-content-md-center mt-5">
+                                        {switchQuestion === 'Unanswered' &&
+                                            <div className="CardList">
+                                                {unanswered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
+                                                    <PollCard id={q.id} key={q.id} />
+                                                )}
+                                            </div>
+                                        }
+                                        {switchQuestion === 'Answered' &&
+                                            <div className="CardList">
+                                                {answered.sort((a, b) => b.timestamp - a.timestamp).map((q) =>
+                                                    <PollCard id={q.id} key={q.id} />
+                                                )}
+                                            </div>
+                                        }
+                                    </Row>
                                 </Card.Body>
                             </Card>
                         </Col>

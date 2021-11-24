@@ -26,7 +26,7 @@ class AddQuestion extends Component {
         const { dispatch } = this.props
 
         if (option1.length > 0 && option2.length > 0) {
-            dispatch(handleAddQuestion(option1, option2)).then(() => this.setState(() => ({
+            dispatch(handleAddQuestion( option1, option2  )).then(() => this.setState(() => ({
                 toHome: true,
             }))
             )
@@ -69,9 +69,9 @@ class AddQuestion extends Component {
     }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser}) {
     return {
-        authedUser
+        authedUser,        
     }
 }
 

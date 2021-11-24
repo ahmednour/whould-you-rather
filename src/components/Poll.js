@@ -58,7 +58,7 @@ class Poll extends Component {
                                             <h3>Poll Results:</h3>
                                             <div className="polldiv">
                                                 <h4>A: {question.optionOne.text}</h4>
-                                                <p>
+                                                <p>                                               
                                                     {questionOneVotes} out of {questionTotalVotes} votes ({questionOnePercent}% ) {usersAnswer === 'optionOne' ? <span>Your Vote</span> : ''}
                                                 </p>
                                             </div>

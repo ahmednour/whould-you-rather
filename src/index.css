@@ -13,6 +13,7 @@ code {
 .text-center.card-custom.card {
     border-radius: 20px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .text-center.card-custom.card .card-header {
