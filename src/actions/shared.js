@@ -19,7 +19,7 @@ export function handleInitialData(userID) {
 }
 
 
-export function handleAddQuestionAnswer(authedUser, qid, answer) {
+export function handleAddQuestionAnswer({ authedUser, qid, answer }) {
     return (dispatch) => {
         dispatch(showLoading())
         return saveQuestionAnswerApi({

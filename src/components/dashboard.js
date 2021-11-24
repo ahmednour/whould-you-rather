@@ -39,7 +39,7 @@ class dashboard extends Component {
                                 <Card.Header>
                                     <Nav className="justify-content-center" variant="tabs" defaultActiveKey="link-1">
                                         <Nav.Item>
-                                            <Nav.Link eventKey="link-1" value={'Unanswered'} onClick={() => this.handleswitchQuestion("Unanswered")}>Unanswered </Nav.Link>
+                                            <Nav.Link eventKey="link-1" value={'Unanswered'} onClick={() => this.handleswitchQuestion("Unanswered")}>Unanswered</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
                                             <Nav.Link eventKey="link-2" value={'Answered'} onClick={() => this.handleswitchQuestion("Answered")}>Answered</Nav.Link>
