@@ -1,7 +1,7 @@
 import React from "react"
-import { BrowserRouter as  Redirect, withRouter }  from 'react-router-dom'
-import { Route } from "react-router";
+import { Route , Redirect , withRouter } from "react-router-dom";
 import { connect } from "react-redux"
+
 
 function PrivatRoute ({ component : Component , ...rest }){
     return(
@@ -18,7 +18,7 @@ function PrivatRoute ({ component : Component , ...rest }){
     );
 }
 
-function mapStateToProps(authedUser){
+function mapStateToProps({authedUser}){
     return{
         authedUser,
 

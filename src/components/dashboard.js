@@ -12,7 +12,7 @@ function getUnansweredQuestions(questions, authedUser) {
 // answered question function 
 function getAnsweredQuestions(questions, authedUser) {
     return (
-        questions.filter((q) => !q.optionOne.votes.includes(authedUser) || !q.optionTwo.votes.includes(authedUser))
+        questions.filter((q) => !q.optionOne.votes.includes(authedUser) && !q.optionTwo.votes.includes(authedUser))
     )
 }
 class dashboard extends Component {

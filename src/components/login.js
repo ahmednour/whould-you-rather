@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import { BrowserRouter as Redirect, withRouter }  from 'react-router-dom'
+import {  Redirect, withRouter }  from 'react-router-dom'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { Card , FloatingLabel } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
@@ -19,21 +19,22 @@ class Login extends Component {
 
     handleLogin = (e) =>{
         e.preventDefault()
+        const {dispatch} = this.props
         if(this.state.id !==''){
-            this.props.dispatch(setAuthedUser(this.state.id))
+            dispatch(setAuthedUser(this.state.id))
             this.setState({
                 redirectToReferrer:true,
             });
-            this.props.history.push("/home");
+            //this.props.history.push("/home");
         }else{
             alert("Pleas , Select User")
         }
     }
     render() {
-        const {users } = this.props
+        const {users  , location} = this.props
         const { redirectToReferrer } = this.state
 
-         const {from } = this.props.location.state || {
+         const {from } = location.state || {
             from: {pathname : "/home"}
          }
          if(redirectToReferrer){
